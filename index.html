@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Méto de Gauss-Seidel</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header >
+        <h1 id="titulo">Método de Gauss-Sedel</h1>
+
+        <ul id="menu">
+            <h3 class="titulo3">Indice</h3>
+            <div id="opc">
+                <li class="lista"><a href="#Introducción">Introducción</a></li>
+                <li> <a href="#Metodo">Método de Gauss-Seidel</a>
+                    <ul>
+                        <li><a href="#Sub1">¿Qué es?</a></li>
+                        <li><a href="#Sub2">Procedimiento</a></li>
+                        <li><a href="#Sub3">Ejemplo</a></li>
+                    
+                    </ul>
+                </li>
+
+                <li><a href="#Conclusion">Conclusión</a></li>
+                <li><a href="#ref">Referencias</a></li>
+                <br>
+            </div>
+        </ul>
+    </header>
+ <hr>
+
+
+    <div >
+        <h1 >Introducción</h1>
+        <div class="parrafo">
+            <p>
+                En ocasiones nos encontraremos con problemas matemáticos conformados por una incognita. 
+                En esos casos, es facil resolverlo con algún método de resolución de ecuaciones. 
+                Sin embargo, la dificultad aumenta cuando el número de incógnitas también lo hace, y para poder 
+                resolverlo se requieren de otros métodos. Uno de ellos es el método de Gauss-Seidel, que nos ayuda 
+                a encontrar una aproximación de la solución del sistema de ecuaciones de n incógnitas.
+            </p>
+        </div>
+ 
+    </div>
+    <div >
+        <h1> Método Gauss-Seidel</h1>
+
+        <h2 >¿Qué es?</h2>
+        <div class="parrafo">
+            <p>
+                El método de Gauss-Seidel es un método iterativo (como el método de <a id="jacobi" href="https://tubloginformativo.com/en-que-consiste-el-metodo-de-jacobi-para-resolver-sistemas-de-ecuaciones/"target="_blank">Jacobi</a>, pero mejorado) que nos ayuda a resolver un sistema 
+                de ecuaciones lineales. A diferencia del otro método, conforme vamos obteniendo los valores de las variables,
+                los vamos usando directamente. Esto hace que sea más rápido llegar al resultado que estamos buscando. En este 
+                método se usa una tolerancia y se calcula un valor llamado "norma", eso nos ayudará a saber cuando parar. En otras palabras, 
+                vamos a ir repitiendo las operaciones hasta que el valor de la norma sea menor o igual a la tolerancia. Cuando eso 
+                ocurra, quiere decir que nos hemos aproximado a la solución del sistema con un margen de error igual a la tolerancia.
+            </p>
+
+        </div>
+<hr>
+        <h2 class="Sub2">Procedimiento</h2>
+        <div class="parrafo">
+            <p>
+                Para hacer los cálculos, se requiere de seguir un procedimiento que se irá repitiendo limitadas veces. <br>
+                Primero, se debe acomodar los coeficientes de las variables en una matriz: <br>
+                
+                
+                <img src="Img/MatrizCoeA.png" alt="Matriz de coeficientes A"> <br>
+
+                Se debe verificar que la diagonal de la matriz sea dominante, es decir, el coeficiente a11 debe ser mayor en su fila, 
+                lo mismo con a22 y con a33 hasta ann. Puedes mover las filas para que se cumpla esa condición. <br>
+                De igual forma se deben crear dos vectores, el vector X es donde están las variables de las ecuaciones y el vector b son 
+                los coeficientes. <br>
+
+                <img src="Img/Vectores.png" alt="Vector X y b"><br>
+
+                Una vez ordenados en la matriz y vectores correspodientes, se empieza a despejar las variables: <br><br>
+                
+                <div class="Ecu">
+                    X1=(-a12*X2-...-a1n*Xn)/a11 <br>
+                    X2=(-a21*X1-...-a2n*Xn)/a22 <br>
+                    Xn=(-an1*X1-an2*X2-...ann-1*Xn-1)/ann <br><br>
+                </div>
+
+                Despues del despeje, le asignamos a todas las variables el valor de 0 y asignamos la tolerancia de error. Esta sería nuestra 
+                iteración 0. <br><br>
+                <div class="Ecu">
+                    X1=0, X2=0, ... Xn=0 <br><br>
+                </div>
+                
+
+                Para la iteración 1, sustituimos en el primer despeje para encontrar el valor de X1. <br>
+                Luego, sustituimos en la variable 2 (X2), tomando en cuenta los valores que acabamos de calcular. <br><br>
+                <div class="Ecu">
+                    X1= valor calculado en el paso anterior. <br>
+                    X3=0. <br> <br>
+                </div>
+
+
+                Para las otras variables se hace los mismo, se sustituye en el despeje, tomando los valores calculados anteriormente. Así hasta encontrar Xn. <br>
+
+                Para la segunda iteración, se repite el procedimiento de la iteración 1. Sin embargo, los valores de las incognitas van a tomar el valor <br>
+                calculado recientemente y ya no 0. 
+
+                A partir de esta iteración se puede calcular la norma: <br>
+                <img src="Img/FormNorma.png" alt="Formula de la norma"> <br>
+
+                Donde X1 es el valor recien obtenido y X1ant es el valor obtenido en la iteración pasada. <br>
+                Con la norma, verificamos si es menor o igual que la tolerancia. Si es menor, hemos terminado; 
+                si es mayor, hacemos otra iteración repitiendo todo el proceso.
+                <br>
+            </p>
+        </div>
+<hr>
+        <h2 id="Sub3">Ejemplo</h2>
+        <div class="parrafo">
+            <p>
+                Tenemos el siguiente sistema de ecuaciones <br>
+                <br><br>
+                <img src="Img/Sist_ Ec.png" alt="Sistema de ecuaciones"> 
+                <p>
+                    Entonces procedemos a agregarlos a nuestra matriz A de tal forma que en la primera fila esten los 
+                    coeficientes de X1, Y1, Z1; en la fila dos estarán los coeficientes de X2, Y2, Z2 y así sucesivavente 
+                </p>
+                <p>
+                    <img src="Img/MatrizA.png" alt="Matriz A">
+                </p>
+                <p>
+                    Para los valores independientes lo acomodaremos en un vector B
+                </p>
+                <p>
+                    <img src="Img/Vectores.png" alt="Vector de valores independientes">
+                </p>
+                <p>
+                    Procedemos a verificar que la diagonal de la matriz A sea dominante. <br>
+                    Nos damos cuenta que no es asi, por lo que debemos arreglar la matriz. Para ello, debemos mover las filas. 
+                    Intercambiamos fila 1 por fila 3, tanto en la matriz A como en el vector B
+
+                    <br><br>
+                    <img src="Img/Cambio2.png" alt="Intercambio 1"> <br><br>
+
+                    Como aún no se ha cumplido la condición, procedemos a realizar otro cambio, esta vez fila 2 por fila 3
+
+                    <br><br>
+                    <img src="Img/Cambio1.png" alt="Intercambio 2">
+                    <br> <br>
+
+                    Y como podemos observar, la diagonal tiene los números mas grandes.
+                </p>
+
+                <p>
+                    Nuestro siguiente paso es realizar los despejes, para ello podemos representar la matriz y el vecto de la siguiente forma:
+                    <br><br>
+                    <img src="Img/Ecuaciones.png" alt="Despejes">
+                    <br><br>
+                    Y realizamos el despeje correspondiente.
+                </p>
+                <p>
+                    El siguiente paso es crear una tabla, colocando los valores de la iteración 1 (todos valen 0)
+                    <p>
+                        <img src="Img/Tabla0.png" alt="Tabla">
+                    </p>
+
+                    en la primera ecuacion se sustituye el valor de las variables y resuelve
+                    <p>
+                        <img src="Img/x1.png" alt="Ecuacion 1">
+                    </p>
+
+                    Para la segunda ecuacion, se sustituye usando el valor de X calculado anteriormente.
+                    <p>
+                        <img src="Img/y1.png" alt="Ecuacion 2">
+                    </p>
+
+                    Para le tercera ecuacion se usan los valores calculados recientemente:
+                    <p>
+                        <img src="Img/z1.png" alt="Ecuacion 3">
+
+                    </p>
+
+                    Colocamos todos los valores en la tabla, en una nueva columna:
+                    <p>
+                        <img src="Img/Tabla1.png" alt="Tabla 1">
+
+                    </p>
+
+                    Y con estos valores podemos calcular la norma.
+                    <p>
+                        <img src="Img/Norma.png" alt="Norma">
+                    </p>
+                    Considerando que  X1, y1, z1 son los valores que acabamos de calcular. Los que tiene ant, son los valores de la iteracion anterior. 
+                    Con estos datos, la tabla quedaría de la siguiente manera:
+                    <p>
+                        <img src="Img/Tabla2.png" alt="tabla 2">
+                    </p>
+
+                    Si la norma > tolerancia, el proceso se repite.
+
+                    <h3 >Iteracion 2</h3>
+
+                    <div id="it2">
+                        <p>Ecuaciones: <br> <img src="Img/Ecuaciones2.png" alt="Ecuaciones 2"></p>
+                        Norma:
+                        <p><img src="Img/Norma2.png" alt="Norma 2"></p>
+                        Tabla:
+                        <p><img src="Img/Tabla3.png" alt="Tabla 3"></p>
+
+                        Hasta que Norma sea menor o igual a tolerancia
+                        <p><img src="Img/Tabla4.png" alt="Tabla4"></p>
+
+                        Entonces la respuesta serían los ultimos calculados:
+                        <p><img src="Img/Soluciones.png" alt="Soluciones"></p>
+                    </div>
+                    
+                </p>
+            </p>
+        </div>
+    </div>
+    <div>
+        <h1 id="Conclusion"> Conclusión</h1>
+        <p>
+            Este método es más rapido que el de Jacobi, por lo que puedes realizar menos iteraciones para aproximar al resultado del 
+            sistema de ecuaciones. Se debe considerar que la diagonal de la matriz de coeficientes sea dominante para evitar algún problema.
+            De igual forma, hay que tener cuidado con los despejes. Hay varias formas de aplicar este metodo, en mi caso, se me facilita más con 
+            las tablas.
+        </p>
+    </div>
+    <div>
+        <h1 id="ref">Referencias</h1>
+        <a href="https://www.lifeder.com/metodo-de-gauss-seidel/"> Lidefer| Metodo de Gauss-Seidel</a> <br>
+        
+        <a href="https://unigal.mx/metodo-de-gauss-seidel/">Unigal| Metodo de Gauss Seidel</a>
+    </div>
+
+</body>
+</html>

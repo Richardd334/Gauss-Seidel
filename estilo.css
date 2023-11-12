@@ -1,0 +1,64 @@
+body{
+    /*background-color: wheat;*/
+    background-image: url("Img/Stage_Speakeasy_LRG.png");
+    
+    text-align: justify;
+    padding-right: 120px;
+    padding-left: 120px;
+    font-size: 20px;
+    margin-left: 40px;
+    }
+
+#titulo{
+    color: darkblue;
+    background-color: blanchedalmond;
+    font-size: 50px;
+    text-align: center;
+}
+#menu{
+
+    outline: 3px solid black;  
+    width: 250px;
+    background: white;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+a{
+    outline: none;
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: blue;
+}
+.titulo3{
+    color: rgb(22, 6, 105);
+}
+img{
+    display: block;
+    width: 40%;
+    margin: auto;
+}
+
+#it2{
+    text-align: center;
+}
+.Ecu{
+    text-align: center;
+    background-color: white;
+    width: 360px;
+    margin: auto;
+}
+
+header~div{
+    background-color: wheat;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+#jacobi{
+    color: red;
+}
+#jacobi:hover{
+    color: blue;
+}
