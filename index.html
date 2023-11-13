@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Méto de Gauss-Seidel</title>
+    <title>Método de Gauss-Seidel</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -70,8 +70,8 @@
                 
                 <img src="Img/MatrizCoeA.png" alt="Matriz de coeficientes A"> <br>
 
-                Se debe verificar que la diagonal de la matriz sea dominante, es decir, el coeficiente a11 debe ser mayor en su fila, 
-                lo mismo con a22 y con a33 hasta ann. Puedes mover las filas para que se cumpla esa condición. <br>
+                Se debe verificar que la diagonal de la matriz sea dominante, es decir, el coeficiente a<sub>11</sub> debe ser mayor en su fila, 
+                lo mismo con a<sub>22</sub> y con a<sub>33</sub> hasta a<sub>nn</sub>. Puedes mover las filas para que se cumpla esa condición. <br>
                 De igual forma se deben crear dos vectores, el vector X es donde están las variables de las ecuaciones y el vector b son 
                 los coeficientes. <br>
 
@@ -80,27 +80,27 @@
                 Una vez ordenados en la matriz y vectores correspodientes, se empieza a despejar las variables: <br><br>
                 
                 <div class="Ecu">
-                    X1=(-a12*X2-...-a1n*Xn)/a11 <br>
-                    X2=(-a21*X1-...-a2n*Xn)/a22 <br>
-                    Xn=(-an1*X1-an2*X2-...ann-1*Xn-1)/ann <br><br>
+                    X<sub>1</sub>=(-a<sub>11</sub>*X<sub>2</sub>-...-a<sub>1</sub>*X<sub>n</sub>)/a<sub>11</sub> <br>
+                    X<sub>1</sub>=(-a<sub>21</sub>*X<sub>1</sub>-...-a<sub>2n</sub>*X<sub>n</sub>)/a<sub>22</sub> <br>
+                    X<sub>n</sub>=(-a<sub>n1</sub>*X<sub>1</sub>-a<sub>n2</sub>*X<sub>2</sub>-...a<sub>n n-1</sub>*X<sub>-1</sub>)/a<sub>nn</sub> <br><br>
                 </div>
 
                 Despues del despeje, le asignamos a todas las variables el valor de 0 y asignamos la tolerancia de error. Esta sería nuestra 
                 iteración 0. <br><br>
                 <div class="Ecu">
-                    X1=0, X2=0, ... Xn=0 <br><br>
+                    X<sub>1</sub>=0, X<sub>2</sub>=0, ... X<sub>n</sub>=0 <br><br>
                 </div>
                 
 
-                Para la iteración 1, sustituimos en el primer despeje para encontrar el valor de X1. <br>
-                Luego, sustituimos en la variable 2 (X2), tomando en cuenta los valores que acabamos de calcular. <br><br>
+                Para la iteración 1, sustituimos en el primer despeje para encontrar el valor de X<sub>1</sub>. <br>
+                Luego, sustituimos en la variable 2 (X<sub>2</sub>), tomando en cuenta los valores que acabamos de calcular. <br><br>
                 <div class="Ecu">
-                    X1= valor calculado en el paso anterior. <br>
-                    X3=0. <br> <br>
+                    X<sub>1</sub>= valor calculado en el paso anterior. <br>
+                    X<sub>3</sub>=0. <br> <br>
                 </div>
 
 
-                Para las otras variables se hace los mismo, se sustituye en el despeje, tomando los valores calculados anteriormente. Así hasta encontrar Xn. <br>
+                Para las otras variables se hace los mismo, se sustituye en el despeje, tomando los valores calculados anteriormente. Así hasta encontrar X<sub>n</sub>. <br>
 
                 Para la segunda iteración, se repite el procedimiento de la iteración 1. Sin embargo, los valores de las incognitas van a tomar el valor <br>
                 calculado recientemente y ya no 0. 
@@ -108,7 +108,7 @@
                 A partir de esta iteración se puede calcular la norma: <br>
                 <img src="Img/FormNorma.png" alt="Formula de la norma"> <br>
 
-                Donde X1 es el valor recien obtenido y X1ant es el valor obtenido en la iteración pasada. <br>
+                Donde X<sub>1</sub> es el valor recien obtenido y X<sub>1<sub>ant</sub>></sub> es el valor obtenido en la iteración pasada. <br>
                 Con la norma, verificamos si es menor o igual que la tolerancia. Si es menor, hemos terminado; 
                 si es mayor, hacemos otra iteración repitiendo todo el proceso.
                 <br>
@@ -123,7 +123,7 @@
                 <img src="Img/Sist_ Ec.png" alt="Sistema de ecuaciones"> 
                 <p>
                     Entonces procedemos a agregarlos a nuestra matriz A de tal forma que en la primera fila esten los 
-                    coeficientes de X1, Y1, Z1; en la fila dos estarán los coeficientes de X2, Y2, Z2 y así sucesivavente 
+                    coeficientes de X<sub>1</sub>, Y<sub>1</sub>, Z<sub>2</sub>; en la fila dos estarán los coeficientes de X<sub>2</sub>, Y<sub>2</sub>, Z<sub>2</sub> y así sucesivavente 
                 </p>
                 <p>
                     <img src="Img/MatrizA.png" alt="Matriz A">
@@ -190,7 +190,7 @@
                     <p>
                         <img src="Img/Norma.png" alt="Norma">
                     </p>
-                    Considerando que  X1, y1, z1 son los valores que acabamos de calcular. Los que tiene ant, son los valores de la iteracion anterior. 
+                    Considerando que  X<sub>1</sub>, y<sub>2</sub>, z<sub>2</sub> son los valores que acabamos de calcular. Los que tiene ant, son los valores de la iteracion anterior. 
                     Con estos datos, la tabla quedaría de la siguiente manera:
                     <p>
                         <img src="Img/Tabla2.png" alt="tabla 2">
